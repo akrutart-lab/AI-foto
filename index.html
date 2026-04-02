@@ -8,6 +8,28 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <!-- Небольшие стили только для переключателя языка -->
+  <style>
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+    }
+    .lang-switch {
+      display: flex;
+      gap: 0.55rem;
+      align-items: center;
+    }
+    .lang-btn {
+      padding: 0.52rem 0.8rem;
+      font-size: 0.9rem;
+      border-radius: 10px;
+    }
+    .lang-btn.is-active {
+      outline: 2px solid rgba(140, 240, 220, 0.9);
+      background: rgba(140, 240, 220, 0.10);
+    }
+  </style>
 </head>
 <body>
   <header class="hero">
@@ -21,55 +43,64 @@
     </svg>
     <nav class="nav container">
       <div class="logo">Neuro<span>Shot</span></div>
-      <a href="#order" class="btn btn-small">Оставить заявку</a>
+
+      <!-- Переключение языка лендинга -->
+      <div class="nav-right">
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" class="btn btn-ghost lang-btn is-active" data-lang="ru" aria-pressed="true">RU</button>
+          <button type="button" class="btn btn-ghost lang-btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+
+        <a href="#order" class="btn btn-small" data-i18n="navOrder">Оставить заявку</a>
+      </div>
     </nav>
 
     <div class="hero-content container reveal">
-      <p class="badge">Профессионально • Креативно • Быстро</p>
-      <h1>Нейрофотосессия по вашему фото</h1>
-      <p class="subtitle">
+      <p class="badge" data-i18n="badge">Профессионально • Креативно • Быстро</p>
+      <h1 data-i18n="heroTitle">Нейрофотосессия по вашему фото</h1>
+      <p class="subtitle" data-i18n="heroSubtitle">
         Превратим обычный снимок в стильные портреты для соцсетей, резюме, личного бренда и контента.
       </p>
       <div class="hero-actions">
-        <a href="#packages" class="btn">Выбрать пакет</a>
-        <a href="#examples" class="btn btn-ghost">Смотреть идеи</a>
+        <a href="#packages" class="btn" data-i18n="choosePackageBtn">Выбрать пакет</a>
+        <a href="#examples" class="btn btn-ghost" data-i18n="seeIdeasBtn">Смотреть идеи</a>
       </div>
     </div>
     <div class="hero-compare container reveal">
       <article class="compare-card before">
         <!-- Важно: названия файлов фото берём из images/README.txt -->
         <img class="smart-image" src="images/hero-before-girl.jpg" alt="Обычное фото девушки перед нейрофотосессией" loading="lazy" decoding="async">
-        <p>Обычное фото</p>
+        <p data-i18n="compareBeforeLabel">Обычное фото</p>
       </article>
       <article class="compare-card after">
         <!-- Если файла нет, скрипт подставит стильный плейсхолдер -->
         <img class="smart-image" src="images/hero-after-russian-style.jpg" alt="Нейрообраз современной русской красавицы в кокошнике с красными бусами и конфетой петушок" loading="lazy" decoding="async">
-        <p>После нейрофотосессии</p>
+        <p data-i18n="compareAfterLabel">После нейрофотосессии</p>
       </article>
     </div>
   </header>
 
   <main>
     <section class="trust-strip container reveal">
-      <div class="trust-item"><strong>500+</strong> нейрообразов создано</div>
-      <div class="trust-item"><strong>24ч</strong> средний срок готовности</div>
-      <div class="trust-item"><strong>4.9/5</strong> оценка клиентов</div>
+      <div class="trust-item"><strong>500+</strong> <span data-i18n="trust1">нейрообразов создано</span></div>
+      <div class="trust-item"><strong>24ч</strong> <span data-i18n="trust2">средний срок готовности</span></div>
+      <div class="trust-item"><strong>4.9/5</strong> <span data-i18n="trust3">оценка клиентов</span></div>
     </section>
 
     <section id="examples" class="section container reveal">
-      <h2>Что вы получите</h2>
+      <h2 data-i18n="examplesTitle">Что вы получите</h2>
       <div class="cards">
         <article class="card">
-          <h3>Бизнес-стиль</h3>
-          <p>Современные портреты для LinkedIn, резюме и личного бренда.</p>
+          <h3 data-i18n="cardBusinessTitle">Бизнес-стиль</h3>
+          <p data-i18n="cardBusinessText">Современные портреты для LinkedIn, резюме и личного бренда.</p>
         </article>
         <article class="card">
-          <h3>Креативные образы</h3>
-          <p>Неон, арт, fashion и cinematic-сцены под ваше настроение.</p>
+          <h3 data-i18n="cardCreativeTitle">Креативные образы</h3>
+          <p data-i18n="cardCreativeText">Неон, арт, fashion и cinematic-сцены под ваше настроение.</p>
         </article>
         <article class="card">
-          <h3>Контент-пак</h3>
-          <p>Серия визуалов в едином стиле для постов, сторис и рекламы.</p>
+          <h3 data-i18n="cardContentTitle">Контент-пак</h3>
+          <p data-i18n="cardContentText">Серия визуалов в едином стиле для постов, сторис и рекламы.</p>
         </article>
       </div>
     </section>
@@ -81,7 +112,7 @@
         <path d="M40 110 Q80 165 120 110 T200 110 T280 110" />
       </svg>
       <div class="container">
-        <h2>Пакеты</h2>
+        <h2 data-i18n="packagesTitle">Пакеты</h2>
         <div class="pricing">
           <!-- Карточки пакетов кликабельны: клик выбирает пакет и прокручивает к форме -->
           <article class="price-card start-card is-clickable" tabindex="0" data-package="Start">
@@ -89,78 +120,78 @@
             <h3>Start</h3>
             <p class="price">2500 ₽</p>
             <ul>
-              <li>5 готовых фото</li>
-              <li>1 стиль на выбор</li>
-              <li>Срок: до 24 часов</li>
+              <li data-i18n="startLi1">5 готовых фото</li>
+              <li data-i18n="startLi2">1 стиль на выбор</li>
+              <li data-i18n="startLi3">Срок: до 24 часов</li>
             </ul>
-            <button type="button" class="btn btn-ghost choose-package" data-package="Start">Выбрать Start</button>
+            <button type="button" class="btn btn-ghost choose-package" data-package="Start" data-i18n="chooseStartBtn">Выбрать Start</button>
           </article>
           <article class="price-card featured pro-card is-clickable" tabindex="0" data-package="Pro">
-            <p class="tag">Популярный</p>
+            <p class="tag" data-i18n="tagPopular">Популярный</p>
             <img class="package-image smart-image" src="images/package-pro.jpg" alt="Пример нейрофото пакета Pro в деловой премиальной стилистике" loading="lazy" decoding="async">
             <h3>Pro</h3>
             <p class="price">6290 ₽</p>
             <ul>
-              <li>10 готовых фото</li>
-              <li>3 разных стиля</li>
-              <li>Срок: 8-12 часов</li>
+              <li data-i18n="proLi1">10 готовых фото</li>
+              <li data-i18n="proLi2">3 разных стиля</li>
+              <li data-i18n="proLi3">Срок: 8-12 часов</li>
             </ul>
-            <button type="button" class="btn choose-package" data-package="Pro">Выбрать Pro</button>
+            <button type="button" class="btn choose-package" data-package="Pro" data-i18n="chooseProBtn">Выбрать Pro</button>
           </article>
           <article class="price-card brand-card is-clickable" tabindex="0" data-package="Brand">
             <img class="package-image smart-image" src="images/package-brand.jpg" alt="Пример нейрофото пакета Brand в премиальной бренд-стилистике" loading="lazy" decoding="async">
             <h3>Brand</h3>
             <p class="price">12 600 ₽</p>
             <ul>
-              <li>25 готовых образов</li>
-              <li>5 стилей + сценарий</li>
-              <li>Приоритетная обработка</li>
+              <li data-i18n="brandLi1">25 готовых образов</li>
+              <li data-i18n="brandLi2">5 стилей + сценарий</li>
+              <li data-i18n="brandLi3">Приоритетная обработка</li>
             </ul>
-            <button type="button" class="btn btn-ghost choose-package" data-package="Brand">Выбрать Brand</button>
+            <button type="button" class="btn btn-ghost choose-package" data-package="Brand" data-i18n="chooseBrandBtn">Выбрать Brand</button>
           </article>
         </div>
       </div>
     </section>
 
     <section id="order" class="section container reveal">
-      <h2>Заказать нейрофотосессию</h2>
+      <h2 data-i18n="orderTitle">Заказать нейрофотосессию</h2>
       <form id="orderForm" class="order-form" novalidate>
         <label>
-          Ваше имя
-          <input type="text" name="name" placeholder="Например, Анна" required>
+          <span data-i18n="labelName">Ваше имя</span>
+          <input type="text" name="name" placeholder="Например, Анна" required data-i18n-placeholder="placeholderName">
         </label>
         <label>
-          Контакт (Telegram или Email)
-          <input type="text" name="contact" placeholder="@nickname или you@mail.com" required>
+          <span data-i18n="labelContact">Контакт (Telegram или Email)</span>
+          <input type="text" name="contact" placeholder="@nickname или you@mail.com" required data-i18n-placeholder="placeholderContact">
         </label>
         <label>
-          Выберите пакет
+          <span data-i18n="labelPackage">Выберите пакет</span>
           <!-- Скрипт может автоподставить пакет при клике по карточке -->
           <select id="packageSelect" name="package" required>
-            <option value="">-- Выберите --</option>
+            <option value="" data-i18n="optionChoose">-- Выберите --</option>
             <option value="Start">Start</option>
             <option value="Pro">Pro</option>
             <option value="Brand">Brand</option>
           </select>
         </label>
         <label>
-          Пожелания к стилю
-          <textarea name="message" rows="4" placeholder="Например: деловой, минимализм, тёплые цвета"></textarea>
+          <span data-i18n="labelMessage">Пожелания к стилю</span>
+          <textarea name="message" rows="4" placeholder="Например: деловой, минимализм, тёплые цвета" data-i18n-placeholder="placeholderMessage"></textarea>
         </label>
 
         <!-- Прикрепление фото: скрепка + понятная рекомендация -->
         <div class="upload-block">
           <div class="upload-head">
-            <span class="upload-title">Ваше фото для обработки</span>
-            <span class="upload-hint" id="uploadHint">JPG/PNG, 1 файл</span>
+            <span class="upload-title" data-i18n="uploadTitle">Ваше фото для обработки</span>
+            <span class="upload-hint" id="uploadHint" data-i18n="uploadHint">JPG/PNG, 1 файл</span>
           </div>
 
           <!-- Кликабельная область: по клику открывается выбор файла -->
           <label class="upload-drop" for="photoInput">
             <span class="clip" aria-hidden="true">📎</span>
             <span class="upload-text">
-              <strong>Прикрепить фото</strong>
-              <span class="upload-subtext" id="photoFilename">Файл не выбран</span>
+              <strong data-i18n="uploadDropTitle">Прикрепить фото</strong>
+              <span class="upload-subtext" id="photoFilename" data-i18n="uploadFileNotSelected">Файл не выбран</span>
             </span>
           </label>
 
@@ -174,22 +205,22 @@
 
           <!-- Рекомендации: что загрузить и что написать в описании -->
           <div class="upload-reco" aria-label="Рекомендации по фото">
-            <p class="reco-title">Рекомендации к фото</p>
+            <p class="reco-title" data-i18n="recoPhotoTitle">Рекомендации к фото</p>
             <ul class="reco-list">
-              <li>Лицо крупно, без сильных фильтров и ретуши.</li>
-              <li>Хороший свет (окно/дневной), без жёстких теней.</li>
-              <li>Без посторонних людей в кадре (или чтобы вы были явно главным).</li>
+              <li data-i18n="recoPhoto1">Лицо крупно, без сильных фильтров и ретуши.</li>
+              <li data-i18n="recoPhoto2">Хороший свет (окно/дневной), без жёстких теней.</li>
+              <li data-i18n="recoPhoto3">Без посторонних людей в кадре (или чтобы вы были явно главным).</li>
             </ul>
-            <p class="reco-title">Что написать в “Пожеланиях к стилю”</p>
+            <p class="reco-title" data-i18n="recoStyleTitle">Что написать в “Пожеланиях к стилю”</p>
             <ul class="reco-list">
-              <li>Цель: резюме / соцсети / бренд / подарок.</li>
-              <li>Настроение: деловой / fashion / кино / арт / “русский стиль”.</li>
-              <li>Детали: фон, цвета, одежда, аксессуары, возраст/настроение (по желанию).</li>
+              <li data-i18n="recoStyle1">Цель: резюме / соцсети / бренд / подарок.</li>
+              <li data-i18n="recoStyle2">Настроение: деловой / fashion / кино / арт / “русский стиль”.</li>
+              <li data-i18n="recoStyle3">Детали: фон, цвета, одежда, аксессуары, возраст/настроение (по желанию).</li>
             </ul>
           </div>
         </div>
 
-        <button type="submit" class="btn submit-btn">Отправить заявку</button>
+        <button type="submit" class="btn submit-btn" data-i18n="submitBtn">Отправить заявку</button>
         <p id="formMessage" class="form-message" aria-live="polite"></p>
       </form>
     </section>
@@ -197,9 +228,202 @@
 
   <footer class="footer">
     <div class="container">
-      <p>© 2026 NeuroShot. Нейрофотосессии нового уровня.</p>
+      <p data-i18n="footerText">© 2026 NeuroShot. Нейрофотосессии нового уровня.</p>
     </div>
   </footer>
+
+  <!--
+    Язык страницы: RU/EN.
+    Реализация простая и без зависимостей:
+    - мы храним выбор в localStorage
+    - подменяем текст у элементов с data-i18n / data-i18n-placeholder
+  -->
+  <script>
+    (function () {
+      const storageKey = "lang";
+      const getLang = () => {
+        try {
+          return localStorage.getItem(storageKey) === "en" ? "en" : "ru";
+        } catch (e) {
+          return "ru";
+        }
+      };
+
+      const setActiveButtons = (lang) => {
+        document.querySelectorAll(".lang-btn").forEach((btn) => {
+          const btnLang = btn.getAttribute("data-lang");
+          const isActive = btnLang === lang;
+          btn.classList.toggle("is-active", isActive);
+          btn.setAttribute("aria-pressed", String(isActive));
+        });
+      };
+
+      const i18n = {
+        ru: {
+          navOrder: "Оставить заявку",
+          badge: "Профессионально • Креативно • Быстро",
+          heroTitle: "Нейрофотосессия по вашему фото",
+          heroSubtitle: "Превратим обычный снимок в стильные портреты для соцсетей, резюме, личного бренда и контента.",
+          choosePackageBtn: "Выбрать пакет",
+          seeIdeasBtn: "Смотреть идеи",
+          compareBeforeLabel: "Обычное фото",
+          compareAfterLabel: "После нейрофотосессии",
+          trust1: "нейрообразов создано",
+          trust2: "средний срок готовности",
+          trust3: "оценка клиентов",
+          examplesTitle: "Что вы получите",
+          cardBusinessTitle: "Бизнес-стиль",
+          cardBusinessText: "Современные портреты для LinkedIn, резюме и личного бренда.",
+          cardCreativeTitle: "Креативные образы",
+          cardCreativeText: "Неон, арт, fashion и cinematic-сцены под ваше настроение.",
+          cardContentTitle: "Контент-пак",
+          cardContentText: "Серия визуалов в едином стиле для постов, сторис и рекламы.",
+          packagesTitle: "Пакеты",
+          tagPopular: "Популярный",
+          chooseStartBtn: "Выбрать Start",
+          chooseProBtn: "Выбрать Pro",
+          chooseBrandBtn: "Выбрать Brand",
+          startLi1: "5 готовых фото",
+          startLi2: "1 стиль на выбор",
+          startLi3: "Срок: до 24 часов",
+          proLi1: "10 готовых фото",
+          proLi2: "3 разных стиля",
+          proLi3: "Срок: 8-12 часов",
+          brandLi1: "25 готовых образов",
+          brandLi2: "5 стилей + сценарий",
+          brandLi3: "Приоритетная обработка",
+          orderTitle: "Заказать нейрофотосессию",
+          labelName: "Ваше имя",
+          placeholderName: "Например, Анна",
+          labelContact: "Контакт (Telegram или Email)",
+          placeholderContact: "@nickname или you@mail.com",
+          labelPackage: "Выберите пакет",
+          optionChoose: "-- Выберите --",
+          labelMessage: "Пожелания к стилю",
+          placeholderMessage: "Например: деловой, минимализм, тёплые цвета",
+          uploadTitle: "Ваше фото для обработки",
+          uploadHint: "JPG/PNG/WEBP, 1 файл",
+          uploadDropTitle: "Прикрепить фото",
+          uploadFileNotSelected: "Файл не выбран",
+          recoPhotoTitle: "Рекомендации к фото",
+          recoPhoto1: "Лицо крупно, без сильных фильтров и ретуши.",
+          recoPhoto2: "Хороший свет (окно/дневной), без жёстких теней.",
+          recoPhoto3: "Без посторонних людей в кадре (или чтобы вы были явно главным).",
+          recoStyleTitle: "Что написать в “Пожеланиях к стилю”",
+          recoStyle1: "Цель: резюме / соцсети / бренд / подарок.",
+          recoStyle2: "Настроение: деловой / fashion / кино / арт / “русский стиль”.",
+          recoStyle3: "Детали: фон, цвета, одежда, аксессуары, возраст/настроение (по желанию).",
+          submitBtn: "Отправить заявку",
+          footerText: "© 2026 NeuroShot. Нейрофотосессии нового уровня."
+        },
+        en: {
+          navOrder: "Leave a request",
+          badge: "Professional • Creative • Fast",
+          heroTitle: "Neuro photo session from your photo",
+          heroSubtitle: "We turn a regular snapshot into stylish portraits for social media, resumes, personal branding, and content.",
+          choosePackageBtn: "Choose a package",
+          seeIdeasBtn: "See ideas",
+          compareBeforeLabel: "Original photo",
+          compareAfterLabel: "After the session",
+          trust1: "neuro-portraits created",
+          trust2: "average turnaround",
+          trust3: "client rating",
+          examplesTitle: "What you get",
+          cardBusinessTitle: "Business style",
+          cardBusinessText: "Modern portraits for LinkedIn, resumes, and personal branding.",
+          cardCreativeTitle: "Creative looks",
+          cardCreativeText: "Neon, art, fashion, and cinematic scenes tailored to your mood.",
+          cardContentTitle: "Content pack",
+          cardContentText: "A series of visuals in a consistent style for posts, stories, and ads.",
+          packagesTitle: "Packages",
+          tagPopular: "Popular",
+          chooseStartBtn: "Choose Start",
+          chooseProBtn: "Choose Pro",
+          chooseBrandBtn: "Choose Brand",
+          startLi1: "5 ready photos",
+          startLi2: "1 style of your choice",
+          startLi3: "Time: up to 24 hours",
+          proLi1: "10 ready photos",
+          proLi2: "3 different styles",
+          proLi3: "Time: 8–12 hours",
+          brandLi1: "25 ready looks",
+          brandLi2: "5 styles + script",
+          brandLi3: "Priority processing",
+          orderTitle: "Order a neuro photo session",
+          labelName: "Your name",
+          placeholderName: "For example, Anna",
+          labelContact: "Contact (Telegram or Email)",
+          placeholderContact: "@nickname or you@mail.com",
+          labelPackage: "Choose a package",
+          optionChoose: "-- Select --",
+          labelMessage: "Style preferences",
+          placeholderMessage: "For example: business, minimalism, warm colors",
+          uploadTitle: "Your photo for processing",
+          uploadHint: "JPG/PNG/WEBP, 1 file",
+          uploadDropTitle: "Attach photo",
+          uploadFileNotSelected: "No file selected",
+          recoPhotoTitle: "Photo recommendations",
+          recoPhoto1: "Face in close-up, without heavy filters or retouch.",
+          recoPhoto2: "Good lighting (window/daylight), no harsh shadows.",
+          recoPhoto3: "No other people in the frame (or make sure you are clearly the main subject).",
+          recoStyleTitle: "What to write in “Style preferences”",
+          recoStyle1: "Purpose: resume / social media / brand / gift.",
+          recoStyle2: "Mood: business / fashion / cinema / art / “Russian style”.",
+          recoStyle3: "Details: background, colors, clothes, accessories, age/mood (optional).",
+          submitBtn: "Submit request",
+          footerText: "© 2026 NeuroShot. Neuro photo sessions of a new level."
+        }
+      };
+
+      const applyLang = (lang) => {
+        document.documentElement.lang = lang;
+        setActiveButtons(lang);
+
+        const photoInput = document.getElementById("photoInput");
+        const hasSelectedFile = !!(photoInput && photoInput.files && photoInput.files[0]);
+
+        // Подмена текста
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.getAttribute("data-i18n");
+
+          // Не перезатираем имя файла, если пользователь уже выбрал картинку
+          if (el.id === "photoFilename" && hasSelectedFile) return;
+          // Не перезатираем подсказку с типом/размером, если файл выбран
+          if (el.id === "uploadHint" && hasSelectedFile) return;
+
+          if (i18n[lang] && Object.prototype.hasOwnProperty.call(i18n[lang], key)) {
+            el.textContent = i18n[lang][key];
+          }
+        });
+
+        // Подмена placeholder
+        document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+          const key = el.getAttribute("data-i18n-placeholder");
+          if (i18n[lang] && Object.prototype.hasOwnProperty.call(i18n[lang], key)) {
+            el.setAttribute("placeholder", i18n[lang][key]);
+          }
+        });
+
+        // Поднимаем событие, чтобы внешний script.js тоже перевёл сообщения
+        window.dispatchEvent(new Event("langchange"));
+      };
+
+      const saved = getLang();
+      applyLang(saved);
+
+      document.querySelectorAll(".lang-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const lang = btn.getAttribute("data-lang") || "ru";
+          try {
+            localStorage.setItem(storageKey, lang);
+          } catch (e) {
+            // ignore
+          }
+          applyLang(lang);
+        });
+      });
+    })();
+  </script>
 
   <script src="script.js"></script>
 </body>
