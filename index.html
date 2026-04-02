@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Нейрофотосессия Pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-decor decor-one"></div>
+    <div class="hero-decor decor-two"></div>
+    <svg class="ornament ornament-hero" viewBox="0 0 280 280" aria-hidden="true">
+      <path d="M20 150 Q80 70 140 150 T260 150" />
+      <path d="M40 180 Q95 110 140 180 T240 180" />
+      <circle cx="140" cy="150" r="8" />
+      <circle cx="140" cy="180" r="6" />
+    </svg>
+    <nav class="nav container">
+      <div class="logo">Neuro<span>Shot</span></div>
+      <a href="#order" class="btn btn-small">Оставить заявку</a>
+    </nav>
+
+    <div class="hero-content container reveal">
+      <p class="badge">Профессионально • Креативно • Быстро</p>
+      <h1>Нейрофотосессия по вашему фото</h1>
+      <p class="subtitle">
+        Превратим обычный снимок в стильные портреты для соцсетей, резюме, личного бренда и контента.
+      </p>
+      <div class="hero-actions">
+        <a href="#packages" class="btn">Выбрать пакет</a>
+        <a href="#examples" class="btn btn-ghost">Смотреть идеи</a>
+      </div>
+    </div>
+    <div class="hero-compare container reveal">
+      <article class="compare-card before">
+        <!-- Важно: названия файлов фото берём из images/README.txt -->
+        <img class="smart-image" src="images/hero-before-girl.jpg" alt="Обычное фото девушки перед нейрофотосессией" loading="lazy" decoding="async">
+        <p>Обычное фото</p>
+      </article>
+      <article class="compare-card after">
+        <!-- Если файла нет, скрипт подставит стильный плейсхолдер -->
+        <img class="smart-image" src="images/hero-after-russian-style.jpg" alt="Нейрообраз современной русской красавицы в кокошнике с красными бусами и конфетой петушок" loading="lazy" decoding="async">
+        <p>После нейрофотосессии</p>
+      </article>
+    </div>
+  </header>
+
+  <main>
+    <section class="trust-strip container reveal">
+      <div class="trust-item"><strong>500+</strong> нейрообразов создано</div>
+      <div class="trust-item"><strong>24ч</strong> средний срок готовности</div>
+      <div class="trust-item"><strong>4.9/5</strong> оценка клиентов</div>
+    </section>
+
+    <section id="examples" class="section container reveal">
+      <h2>Что вы получите</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Бизнес-стиль</h3>
+          <p>Современные портреты для LinkedIn, резюме и личного бренда.</p>
+        </article>
+        <article class="card">
+          <h3>Креативные образы</h3>
+          <p>Неон, арт, fashion и cinematic-сцены под ваше настроение.</p>
+        </article>
+        <article class="card">
+          <h3>Контент-пак</h3>
+          <p>Серия визуалов в едином стиле для постов, сторис и рекламы.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="packages" class="section section-alt reveal">
+      <svg class="ornament ornament-packages" viewBox="0 0 320 220" aria-hidden="true">
+        <path d="M10 110 H310" />
+        <path d="M40 110 Q80 55 120 110 T200 110 T280 110" />
+        <path d="M40 110 Q80 165 120 110 T200 110 T280 110" />
+      </svg>
+      <div class="container">
+        <h2>Пакеты</h2>
+        <div class="pricing">
+          <!-- Карточки пакетов кликабельны: клик выбирает пакет и прокручивает к форме -->
+          <article class="price-card start-card is-clickable" tabindex="0" data-package="Start">
+            <img class="package-image smart-image" src="images/package-start.jpg" alt="Пример нейрофото пакета Start в мягкой современной стилистике" loading="lazy" decoding="async">
+            <h3>Start</h3>
+            <p class="price">2500 ₽</p>
+            <ul>
+              <li>5 готовых фото</li>
+              <li>1 стиль на выбор</li>
+              <li>Срок: до 24 часов</li>
+            </ul>
+            <button type="button" class="btn btn-ghost choose-package" data-package="Start">Выбрать Start</button>
+          </article>
+          <article class="price-card featured pro-card is-clickable" tabindex="0" data-package="Pro">
+            <p class="tag">Популярный</p>
+            <img class="package-image smart-image" src="images/package-pro.jpg" alt="Пример нейрофото пакета Pro в деловой премиальной стилистике" loading="lazy" decoding="async">
+            <h3>Pro</h3>
+            <p class="price">6290 ₽</p>
+            <ul>
+              <li>10 готовых фото</li>
+              <li>3 разных стиля</li>
+              <li>Срок: 8-12 часов</li>
+            </ul>
+            <button type="button" class="btn choose-package" data-package="Pro">Выбрать Pro</button>
+          </article>
+          <article class="price-card brand-card is-clickable" tabindex="0" data-package="Brand">
+            <img class="package-image smart-image" src="images/package-brand.jpg" alt="Пример нейрофото пакета Brand в премиальной бренд-стилистике" loading="lazy" decoding="async">
+            <h3>Brand</h3>
+            <p class="price">12 600 ₽</p>
+            <ul>
+              <li>25 готовых образов</li>
+              <li>5 стилей + сценарий</li>
+              <li>Приоритетная обработка</li>
+            </ul>
+            <button type="button" class="btn btn-ghost choose-package" data-package="Brand">Выбрать Brand</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="order" class="section container reveal">
+      <h2>Заказать нейрофотосессию</h2>
+      <form id="orderForm" class="order-form" novalidate>
+        <label>
+          Ваше имя
+          <input type="text" name="name" placeholder="Например, Анна" required>
+        </label>
+        <label>
+          Контакт (Telegram или Email)
+          <input type="text" name="contact" placeholder="@nickname или you@mail.com" required>
+        </label>
+        <label>
+          Выберите пакет
+          <!-- Скрипт может автоподставить пакет при клике по карточке -->
+          <select id="packageSelect" name="package" required>
+            <option value="">-- Выберите --</option>
+            <option value="Start">Start</option>
+            <option value="Pro">Pro</option>
+            <option value="Brand">Brand</option>
+          </select>
+        </label>
+        <label>
+          Пожелания к стилю
+          <textarea name="message" rows="4" placeholder="Например: деловой, минимализм, тёплые цвета"></textarea>
+        </label>
+
+        <!-- Прикрепление фото: скрепка + понятная рекомендация -->
+        <div class="upload-block">
+          <div class="upload-head">
+            <span class="upload-title">Ваше фото для обработки</span>
+            <span class="upload-hint" id="uploadHint">JPG/PNG, 1 файл</span>
+          </div>
+
+          <!-- Кликабельная область: по клику открывается выбор файла -->
+          <label class="upload-drop" for="photoInput">
+            <span class="clip" aria-hidden="true">📎</span>
+            <span class="upload-text">
+              <strong>Прикрепить фото</strong>
+              <span class="upload-subtext" id="photoFilename">Файл не выбран</span>
+            </span>
+          </label>
+
+          <input
+            id="photoInput"
+            class="upload-input"
+            type="file"
+            name="photo"
+            accept="image/jpeg,image/png,image/webp"
+          >
+
+          <!-- Рекомендации: что загрузить и что написать в описании -->
+          <div class="upload-reco" aria-label="Рекомендации по фото">
+            <p class="reco-title">Рекомендации к фото</p>
+            <ul class="reco-list">
+              <li>Лицо крупно, без сильных фильтров и ретуши.</li>
+              <li>Хороший свет (окно/дневной), без жёстких теней.</li>
+              <li>Без посторонних людей в кадре (или чтобы вы были явно главным).</li>
+            </ul>
+            <p class="reco-title">Что написать в “Пожеланиях к стилю”</p>
+            <ul class="reco-list">
+              <li>Цель: резюме / соцсети / бренд / подарок.</li>
+              <li>Настроение: деловой / fashion / кино / арт / “русский стиль”.</li>
+              <li>Детали: фон, цвета, одежда, аксессуары, возраст/настроение (по желанию).</li>
+            </ul>
+          </div>
+        </div>
+
+        <button type="submit" class="btn submit-btn">Отправить заявку</button>
+        <p id="formMessage" class="form-message" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 NeuroShot. Нейрофотосессии нового уровня.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
